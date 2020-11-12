@@ -1,0 +1,34 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "LIT",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.lit",
+          "match": "\\b(if|else|while|loop|return)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.lit",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.lit",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.lit"
+}
