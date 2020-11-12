@@ -3,6 +3,7 @@
   "displayName": "lit-lang",
   "description": "Support for the LIT programming language",
   "version": "0.0.1",
+  "publisher": "matheusrich",
   "engines": {
     "vscode": "^1.51.0"
   },
