@@ -2,7 +2,7 @@
   "name": "lit-lang",
   "displayName": "lit-lang",
   "description": "Support for the LIT programming language",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "matheusrich",
   "repository": {
     "url": "https://github.com/MatheusRich/lit-vscode"

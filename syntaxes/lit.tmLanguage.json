@@ -7,6 +7,12 @@
     },
     {
       "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#identifiers"
     }
   ],
   "repository": {
@@ -14,7 +20,7 @@
       "patterns": [
         {
           "name": "keyword.control.lit",
-          "match": "\\b(if|else|while|loop|return)\\b"
+          "match": "\\b(if|else|while|loop|return|match|break)\\b"
         }
       ]
     },
@@ -26,6 +32,22 @@
         {
           "name": "constant.character.escape.lit",
           "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "name": "number",
+      "patterns": [
+        {
+          "match": "[0-9]+"
+        }
+      ]
+    },
+    "identifiers": {
+      "name": "identifier",
+      "patterns": [
+        {
+          "match": "([a-zA-Z_][a-zA-Z0-9_!?]*"
         }
       ]
     }
