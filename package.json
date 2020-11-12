@@ -4,6 +4,9 @@
   "description": "Support for the LIT programming language",
   "version": "0.0.1",
   "publisher": "matheusrich",
+  "repository": {
+    "url": "https://github.com/MatheusRich/lit-vscode"
+  },
   "engines": {
     "vscode": "^1.51.0"
   },
