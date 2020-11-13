@@ -21,6 +21,7 @@
           "LIT",
           "lit"
         ],
+        "firstLine": "^#!\\s*/.*(?:lit)\\b",
         "extensions": [
           ".lit"
         ],
