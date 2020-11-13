@@ -7,6 +7,7 @@
   "repository": {
     "expression": {
       "patterns": [
+        { "include": "#keywords" },
         { "include": "#strings" },
         { "include": "#numbers" },
         { "include": "#comments" },
@@ -17,11 +18,19 @@
       "patterns": [
         {
           "name": "keyword.control.lit",
-          "match": "\\b(if|else|while|loop|return|match|break|for)\\b"
+          "match": "\\b(if|else|while|loop|return|match|break)\\b"
         },
         {
-          "name": "keyword.operator.lit",
-          "match": "\\b(and|or)\\b"
+          "name": "constant.language.null.lit",
+          "match": "\\b(nil)\\b"
+        },
+        {
+          "name": "constant.language.boolean.lit",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "support.function.builtin.lit",
+          "match": "\\b(puts|print)\\b"
         }
       ]
     },
@@ -54,12 +63,21 @@
       ]
     },
     "comments": {
-      "match": "#.*",
-      "name": "comment.line.number-sign"
+      "patterns": [
+        {
+          "begin": "#=",
+          "end": "=#",
+          "name": "comment.block.lit"
+        },
+        {
+          "match": "#.*",
+          "name": "comment.line.number-sign.lit"
+        }
+      ]
     },
     "numbers": {
-      "name": "constant.numeric.integer.lit",
-      "match": "[0-9]+"
+      "name": "constant.numeric.lit",
+      "match": "\\b[0-9]+(?:.[0-9]+)?\\b"
     },
     "identifiers": {
       "name": "variable.other.lit",
