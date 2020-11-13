@@ -21,6 +21,10 @@
           "match": "\\b(if|else|while|loop|return|match|break|and|or)\\b"
         },
         {
+          "name": "keyword.other.lit",
+          "match": "\\b(fn|let)\\b"
+        },
+        {
           "name": "constant.language.null.lit",
           "match": "\\b(nil)\\b"
         },
@@ -80,8 +84,8 @@
       "match": "\\b[0-9]+(?:.[0-9]+)?\\b"
     },
     "callables": {
-      "match": "([A-Za-z_][A-Za-z0-9_?!]*)\\(",
-      "name": "entity.name.function.lit"
+      "name": "entity.name.function.lit",
+      "match": "([A-Za-z_][A-Za-z0-9_?!]*)\\("
     },
     "identifiers": {
       "name": "variable.other.readwrite.lit",
