@@ -11,6 +11,7 @@
         { "include": "#strings" },
         { "include": "#numbers" },
         { "include": "#comments" },
+        { "include": "#callables" },
         { "include": "#identifiers" }
       ]
     },
@@ -18,7 +19,7 @@
       "patterns": [
         {
           "name": "keyword.control.lit",
-          "match": "\\b(if|else|while|loop|return|match|break)\\b"
+          "match": "\\b(if|else|while|loop|return|match|break|and|or)\\b"
         },
         {
           "name": "constant.language.null.lit",
@@ -79,9 +80,13 @@
       "name": "constant.numeric.lit",
       "match": "\\b[0-9]+(?:.[0-9]+)?\\b"
     },
+    "callables": {
+      "match": "([A-Za-z_][A-Za-z0-9_?!]*)\\(",
+      "name": "entity.name.function.lit"
+    },
     "identifiers": {
-      "name": "variable.other.lit",
-      "match": "((?<=\\W)\\b|^)\\w+\\b(?=\\s*([\\]\\)\\}\\=\\+\\-\\*\\/\\^\\$\\,\\.]|<\\s|<<[\\s|\\.]))"
+      "name": "variable.other.readwrite.lit",
+      "match": "[A-Za-z_][A-Za-z0-9_?!]*"
     }
   }
 }
