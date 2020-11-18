@@ -35,6 +35,12 @@
         "scopeName": "source.lit",
         "path": "./syntaxes/lit.tmLanguage.json"
       }
+    ],
+    "snippets": [
+      {
+        "language": "lit",
+        "path": "./snippets/lit.json"
+      }
     ]
   }
 }

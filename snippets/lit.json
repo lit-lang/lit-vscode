@@ -1,29 +1,29 @@
 {
   "Print to console": {
     "scope": "lit",
-    "prefix": ["print"],
-    "body": ["print('$1');", "$2"],
+    "prefix": ["print("],
+    "body": ["print('$1')", "$2"],
     "description": "Print output to console"
   },
   "Print to console with new line": {
     "scope": "lit",
-    "prefix": ["puts"],
-    "body": ["puts('$1');", "$2"],
+    "prefix": ["puts("],
+    "body": ["puts('$1')", "$2"],
     "description": "Print output to console with new line"
   },
   "New variable": {
     "scope": "lit",
-    "prefix": ["let"],
-    "body": ["let $1 = $2;"]
+    "prefix": ["let "],
+    "body": ["let $1 = $2"]
   },
   "New function": {
     "scope": "lit",
-    "prefix": ["fn", "function"],
-    "body": ["fn { |$1| $2 };"]
+    "prefix": ["fn { |", "fn {|", "function"],
+    "body": ["fn { |$1| $2 }"]
   },
   "if": {
     "scope": "lit",
-    "prefix": ["if"],
+    "prefix": ["if (", "if("],
     "body": ["if ($1) {$2}"]
   },
   "if else": {
@@ -69,7 +69,7 @@
   "return": {
     "scope": "lit",
     "prefix": ["return"],
-    "body": ["return $1;"]
+    "body": ["return $1"]
   },
   "break": {
     "scope": "lit",
