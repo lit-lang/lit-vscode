@@ -40,6 +40,8 @@
     },
     "strings": {
       "patterns": [
+        { "include": "#single-quoted-strings-interpolated" },
+        { "include": "#double-quoted-strings-interpolated" },
         { "include": "#single-quoted-strings" },
         { "include": "#double-quoted-strings" }
       ]
@@ -63,6 +65,33 @@
         {
           "name": "constant.character.escape.lit",
           "match": "\\\\."
+        }
+      ]
+    },
+    "double-quoted-strings-interpolated": {
+      "name": "string.quoted.double.interpolated.lit",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "include": "#interpolated-lit" }]
+    },
+    "single-quoted-strings-interpolated": {
+      "name": "string.quoted.single.interpolated.lit",
+      "begin": "'",
+      "end": "'",
+      "patterns": [{ "include": "#interpolated-lit" }]
+    },
+    "interpolated-lit": {
+      "patterns": [
+        {
+          "begin": "{",
+          "contentName": "source.lit",
+          "end": "}",
+          "name": "meta.embedded.line.lit",
+          "patterns": [
+            {
+              "include": "$self"
+            }
+          ]
         }
       ]
     },
