@@ -4,7 +4,9 @@ LIT language support for VSCode.
 
 ## Features
 
-- Syntax highliting
+- Syntax highliting;
+- Snippets;
+<!-- - Formatting; -->
 
 ## Extension Settings
 

@@ -1,0 +1,79 @@
+{
+  "Print to console": {
+    "scope": "lit",
+    "prefix": ["print"],
+    "body": ["print('$1');", "$2"],
+    "description": "Print output to console"
+  },
+  "Print to console with new line": {
+    "scope": "lit",
+    "prefix": ["puts"],
+    "body": ["puts('$1');", "$2"],
+    "description": "Print output to console with new line"
+  },
+  "New variable": {
+    "scope": "lit",
+    "prefix": ["let"],
+    "body": ["let $1 = $2;"]
+  },
+  "New function": {
+    "scope": "lit",
+    "prefix": ["fn", "function"],
+    "body": ["fn { |$1| $2 };"]
+  },
+  "if": {
+    "scope": "lit",
+    "prefix": ["if"],
+    "body": ["if ($1) {$2}"]
+  },
+  "if else": {
+    "scope": "lit",
+    "prefix": ["if else"],
+    "body": ["if ($1) {", "\t$2", "} else {", "\t$3", "}"]
+  },
+  "match": {
+    "scope": "lit",
+    "prefix": ["match"],
+    "body": ["match ($1) {", "\t$2 -> $3", "\t_ -> $4", "}"]
+  },
+  "while": {
+    "scope": "lit",
+    "prefix": ["while"],
+    "body": ["while ($1) {", "\t$2", "}"]
+  },
+  "and": {
+    "scope": "lit",
+    "prefix": ["and"],
+    "body": ["and $1"]
+  },
+  "or": {
+    "scope": "lit",
+    "prefix": ["or"],
+    "body": ["or $1"]
+  },
+  "nil": {
+    "scope": "lit",
+    "prefix": ["nil"],
+    "body": ["nil"]
+  },
+  "true": {
+    "scope": "lit",
+    "prefix": ["true"],
+    "body": ["true"]
+  },
+  "false": {
+    "scope": "lit",
+    "prefix": ["false"],
+    "body": ["false"]
+  },
+  "return": {
+    "scope": "lit",
+    "prefix": ["return"],
+    "body": ["return $1;"]
+  },
+  "break": {
+    "scope": "lit",
+    "prefix": ["break"],
+    "body": ["break"]
+  }
+}
