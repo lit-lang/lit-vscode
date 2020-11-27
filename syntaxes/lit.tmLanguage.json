@@ -100,7 +100,8 @@
         {
           "begin": "#=",
           "end": "=#",
-          "name": "comment.block.lit"
+          "name": "comment.block.lit",
+          "patterns": [{ "include": "#comments" }]
         },
         {
           "match": "#.*",
