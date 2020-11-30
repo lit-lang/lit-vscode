@@ -18,7 +18,7 @@
       "patterns": [
         {
           "name": "keyword.control.lit",
-          "match": "\\b(if|else|while|loop|return|match|break|and|or)\\b"
+          "match": "\\b(if|else|while|loop|return|match|break|and|or|is)\\b"
         },
         {
           "name": "keyword.other.lit",
