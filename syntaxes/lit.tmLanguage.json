@@ -6,10 +6,11 @@
   "repository": {
     "expression": {
       "patterns": [
+        { "include": "#comments" },
         { "include": "#keywords" },
+        { "include": "#expressions" },
         { "include": "#strings" },
         { "include": "#numbers" },
-        { "include": "#comments" },
         { "include": "#callables" },
         { "include": "#identifiers" }
       ]
@@ -22,7 +23,11 @@
         },
         {
           "name": "keyword.other.lit",
-          "match": "\\b(fn|let)\\b"
+          "match": "\\b(fn)\\b"
+        },
+        {
+          "name": "variable.language.closure-parameter.lit",
+          "match": "\\b(it)\\b"
         },
         {
           "name": "constant.language.null.lit",
@@ -35,6 +40,10 @@
         {
           "name": "support.function.builtin.lit",
           "match": "\\b(puts|print)\\b"
+        },
+        {
+          "name": "variable.language.this.lit",
+          "match": "\\b(self)\\b"
         }
       ]
     },
@@ -115,11 +124,97 @@
     },
     "callables": {
       "name": "entity.name.function.lit",
-      "match": "([A-Za-z_][A-Za-z0-9_?!]*)\\("
+      "match": "([A-Za-z_][A-Za-z0-9_?!]*)\\s*[\\(\\{]"
     },
     "identifiers": {
-      "name": "variable.other.readwrite.lit",
-      "match": "[A-Za-z_][A-Za-z0-9_?!]*"
+      "patterns": [
+        {
+          "match": "\\b([A-Z][A-Za-z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "entity.name.type.lit"
+            }
+          }
+        },
+        {
+          "name": "variable.other.readwrite.lit",
+          "match": "[A-Za-z_][A-Za-z0-9_?!]*"
+        }
+      ]
+    },
+    "expressions": {
+      "patterns": [
+        {
+          "match": "\\b(let)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "storage.type.lit"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "match": "\\b([A-Z][A-Za-z0-9_]*)\\b",
+                  "captures": {
+                    "1": {
+                      "name": "entity.name.type.lit"
+                    }
+                  }
+                },
+                { "name": "support.variable.lit" }
+              ]
+            }
+          }
+        },
+        {
+          "match": "\\b(struct)\\s+([A-Z][A-Za-z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "storage.type.struct.lit"
+            },
+            "2": {
+              "name": "entity.name.type.struct.lit"
+            }
+          }
+        },
+        {
+          "match": "\\b(type)\\s+(([A-Z][A-Za-z0-9_]*)(\\s*,\\s*[A-Z][A-Za-z0-9_]*)*|\\*?)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.lit"
+            },
+            "2": {
+              "name": "entity.name.type.lit"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "match": "\\b[A-Z][A-Za-z0-9_]*\\b",
+                  "name": "entity.name.type.lit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "match": "\\b(fn)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*\\(([A-Za-z0-9,\\s]*)\\)",
+          "captures": {
+            "1": {
+              "name": "storage.type.function.lox"
+            },
+            "2": {
+              "name": "entity.name.function.lox"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+                  "name": "variable.parameter.lox"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   }
 }
