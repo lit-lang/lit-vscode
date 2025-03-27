@@ -2,29 +2,49 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "LIT",
   "scopeName": "source.lit",
-  "patterns": [{ "include": "#expression" }],
+  "patterns": [
+    {
+      "include": "#expression"
+    }
+  ],
   "repository": {
     "expression": {
       "patterns": [
-        { "include": "#comments" },
-        { "include": "#expressions" },
-        { "include": "#keywords" },
-        { "include": "#operators" },
-        { "include": "#strings" },
-        { "include": "#numbers" },
-        { "include": "#callables" },
-        { "include": "#identifiers" }
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#expressions"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#callables"
+        },
+        {
+          "include": "#identifiers"
+        }
       ]
     },
     "keywords": {
       "patterns": [
         {
           "name": "keyword.control.lit",
-          "match": "\\b(if|else|elsif|do|then|while|until|loop|return|match|break|and|or)\\b"
+          "match": "\\b(if|else|elsif|do|then|while|until|loop|return|match|break|next|and|or)\\b"
         },
         {
           "name": "keyword.other.lit",
-          "match": "\\b(fn|struct|type|new|try)\\b"
+          "match": "\\b(fn|type|variant|new|try)\\b"
         },
         {
           "name": "variable.language.closure-parameter.lit",
@@ -40,7 +60,7 @@
         },
         {
           "name": "support.function.builtin.lit",
-          "match": "\\b(println|print|readln|read)\\b"
+          "match": "\\b(println|print|readln|read|panic)\\b"
         },
         {
           "name": "variable.language.this.lit",
@@ -74,9 +94,15 @@
     },
     "strings": {
       "patterns": [
-        { "include": "#double-quoted-strings-interpolated" },
-        { "include": "#single-quoted-strings" },
-        { "include": "#double-quoted-strings" }
+        {
+          "include": "#double-quoted-strings-interpolated"
+        },
+        {
+          "include": "#single-quoted-strings"
+        },
+        {
+          "include": "#double-quoted-strings"
+        }
       ]
     },
     "single-quoted-strings": {
@@ -99,14 +125,23 @@
           "name": "constant.character.escape.lit",
           "match": "\\\\."
         },
-        { "include": "#escaped_char" }
+        {
+          "include": "#escaped_char"
+        }
       ]
     },
     "double-quoted-strings-interpolated": {
       "name": "string.quoted.double.interpolated.lit",
       "begin": "\"",
       "end": "\"",
-      "patterns": [{ "include": "#interpolated-lit" }, { "include": "#escaped_char" }]
+      "patterns": [
+        {
+          "include": "#interpolated-lit"
+        },
+        {
+          "include": "#escaped_char"
+        }
+      ]
     },
     "interpolated-lit": {
       "patterns": [
@@ -129,7 +164,11 @@
           "begin": "#=",
           "end": "=#",
           "name": "comment.block.lit",
-          "patterns": [{ "include": "#comments" }]
+          "patterns": [
+            {
+              "include": "#comments"
+            }
+          ]
         },
         {
           "match": "#.*",
@@ -191,7 +230,9 @@
                     }
                   }
                 },
-                { "name": "support.variable.lit" }
+                {
+                  "name": "support.variable.lit"
+                }
               ]
             }
           }
@@ -208,24 +249,13 @@
           }
         },
         {
-          "match": "\\b(struct)\\s+([A-Z][A-Za-z0-9_]*)\\b",
+          "match": "\\b(type)\\s+([A-Z][A-Za-z0-9_]*)\\b",
           "captures": {
             "1": {
-              "name": "storage.type.struct.lit"
+              "name": "storage.type.type.lit"
             },
             "2": {
-              "name": "entity.name.type.struct.lit"
-            }
-          }
-        },
-        {
-          "match": "\\b(enum)\\s+([A-Z][A-Za-z0-9_]*)\\b",
-          "captures": {
-            "1": {
-              "name": "storage.type.enum.lit"
-            },
-            "2": {
-              "name": "entity.name.type.enum.lit"
+              "name": "entity.name.type.type.lit"
             }
           }
         },
@@ -264,6 +294,20 @@
                   "name": "variable.parameter.lit"
                 }
               ]
+            }
+          }
+        },
+        {
+          "match": "\\b(fn)\\s+([A-Za-z_][A-Za-z0-9_!?]*)\\s*\\b(do)\\b",
+          "captures": {
+            "1": {
+              "name": "storage.type.function.lit"
+            },
+            "2": {
+              "name": "entity.name.function.lit"
+            },
+            "3": {
+              "name": "keyword.control.lit"
             }
           }
         }
