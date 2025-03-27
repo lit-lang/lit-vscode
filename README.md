@@ -34,6 +34,6 @@ $ npm install -g vsce
 
 Build the extension with
 
-````sh
-npx vsce package```.
-````
+```sh
+npx vsce package
+```

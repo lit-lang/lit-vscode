@@ -20,11 +20,11 @@
       "patterns": [
         {
           "name": "keyword.control.lit",
-          "match": "\\b(if|else|elsif|then|while|loop|return|match|break|and|or|is)\\b"
+          "match": "\\b(if|else|elsif|do|then|while|until|loop|return|match|break|and|or)\\b"
         },
         {
           "name": "keyword.other.lit",
-          "match": "\\b(fn|struct|type)\\b"
+          "match": "\\b(fn|struct|type|new|try)\\b"
         },
         {
           "name": "variable.language.closure-parameter.lit",
